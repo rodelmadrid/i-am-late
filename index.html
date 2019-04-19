@@ -8,45 +8,46 @@
     </head>
     <body>
         <header>
-           <h1>Welcome to I am Late App</h1> 
-           <h2>Do you wanna know if you are on time?</h2>
+           <h1>Welcome to I am Late App</h1>
+           <p>Do you wanna know if you are on time?</p>
         </header>
 
-        <div id="MyDate" class="Date">
-            <form>
-                <label>Date: </label>
-                <input type="date" class="myInput"><br>
-            </form>
-        </div>
+        <div class="row">
+            <div>
+                <div id="my-date" class="date">
+                    <form>
+                        <label>Date:</label>
+                        <input id="meeting-date" type="date" class="my-input"><br>
+                    </form>
+                </div>
 
-        <div class="main">
-            <div class="ClockBadge">
-                Time:
+                <!-- <div class="main date">
+                    <span>Time:</span>
+                    <div class="my-input">
+                         <span id="hour"></span>
+                         <span id="minute"></span>
+                         <span id="second"></span>
+                    </div>
+                </div> -->
+
             </div>
-
-            <div class="clock">
-                 <span id="hour"></span>
-                 <span id="minute"></span>
-                 <span id="second"></span>
+            <div>
+                <div class="main date">
+                    <label>Name:</label><input id="name" type="box"/>
+                </div>
             </div>
         </div>
 
-        <div class="Name">
-            Name:
-        </div>
-
-        <div class="box">
-            <input type="box>"/><br>
-            <input type="submit">
-        </div>
-
-        <div id="Late" class="badge">Am I Late?</div>
-
+        <div id="i-am-late-btn" class="badge">Am I Late?</div>
         <div class="result">
-            <p>Good Job!</p>
-              <img class src="Emoticon/Goodjob.png">
-            <p>You're Late!!!!</p>
-              <img class src="Emoticon/Late.jpg">
+            <div id="on-time">
+                <p><span class="username"></span> Good Job!</p>
+                <img class src="images/goodjob.png">
+            </div>
+            <div id="late">
+                <p><span class="username"></span> You're Late!!!!</p>
+                <img class src="images/late.jpg">
+            </div>
         </div>
         <script src="app.js" charset="utf-8"></script>
     </body>
