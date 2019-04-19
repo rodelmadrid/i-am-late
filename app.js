@@ -65,6 +65,7 @@ function iAmLateButton() {
 
 // This is the main function
 function iAmLateApp() {
+    // tick the clock
     setInterval(clock, 100);
     iAmLateButton();
 }
