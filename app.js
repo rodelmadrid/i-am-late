@@ -47,17 +47,21 @@ function iAmLateButton() {
             today.setHours(0, 0, 0);
 
             const name = document.getElementById('name').value;
-            const usernamesElements = document.getElementsByClassName('username');
-            for (let i = 0; i < usernamesElements.length; i++) {
-                usernamesElements[i].innerHTML = name;
-            }
-
-            if (realMeetingDate < today) {
-                document.getElementById('late').style.display = 'block';
-                document.getElementById('on-time').style.display = 'none';
+            if (!name) {
+                alert('Enter a Valid Name')
             } else {
-                document.getElementById('on-time').style.display = 'block';
-                document.getElementById('late').style.display = 'none';
+                const usernamesElements = document.getElementsByClassName('username');
+                for (let i = 0; i < usernamesElements.length; i++) {
+                    usernamesElements[i].innerHTML = name;
+                }
+
+                if (realMeetingDate < today) {
+                    document.getElementById('late').style.display = 'block';
+                    document.getElementById('on-time').style.display = 'none';
+                } else {
+                    document.getElementById('on-time').style.display = 'block';
+                    document.getElementById('late').style.display = 'none';
+                }
             }
         }
     }
