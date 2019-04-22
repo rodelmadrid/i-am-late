@@ -45,9 +45,6 @@ header > p {
     display: inline-block;
 }
 
-.clock-badge {
-}
-
 .clock {
     background: #8DBF42;
     color: #fff;
@@ -62,6 +59,11 @@ header > p {
 
 .box {
     margin-bottom: 5px;
+}
+
+.timepicker {
+    font-weight: bold;
+    padding: 12px;
 }
 
 .badge {
