@@ -36,31 +36,42 @@ function padTime(value) {
 // activate click on the i am late button
 function iAmLateButton() {
     document.getElementById('i-am-late-btn').onclick = function() {
+
         const meetingDate = document.getElementById('meeting-date').value;
         if (!meetingDate) {
             alert('Select a date for your meeting');
         } else {
+            // create a Date from the date sent
             const realMeetingDate = new Date(meetingDate);
-            realMeetingDate.setHours(0, 0, 0);
-
-            const today = new Date();
-            today.setHours(0, 0, 0);
-
-            const name = document.getElementById('name').value;
-            if (!name) {
-                alert('Enter a Valid Name')
+            // get the value of the time
+            const meetingTime = document.getElementById('meeting-time').value;
+            if (!meetingTime) {
+                alert('Select a time for your meeting');
             } else {
-                const usernamesElements = document.getElementsByClassName('username');
-                for (let i = 0; i < usernamesElements.length; i++) {
-                    usernamesElements[i].innerHTML = name;
-                }
+                const meetingTimeSplittedArray = meetingTime.split(':');
 
-                if (realMeetingDate < today) {
-                    document.getElementById('late').style.display = 'block';
-                    document.getElementById('on-time').style.display = 'none';
+                const selectedHour = parseInt(meetingTimeSplittedArray[0]);
+                const selectedMinutes = parseInt(meetingTimeSplittedArray[1]);
+                const selectedSeconds = 0;
+                realMeetingDate.setHours(selectedHour, selectedMinutes, selectedSeconds);
+
+                const today = new Date();
+                const name = document.getElementById('name').value;
+                if (!name) {
+                    alert('Enter a Valid Name')
                 } else {
-                    document.getElementById('on-time').style.display = 'block';
-                    document.getElementById('late').style.display = 'none';
+                    const usernamesElements = document.getElementsByClassName('username');
+                    for (let i = 0; i < usernamesElements.length; i++) {
+                        usernamesElements[i].innerHTML = name;
+                    }
+
+                    if (realMeetingDate < today) {
+                        document.getElementById('late').style.display = 'block';
+                        document.getElementById('on-time').style.display = 'none';
+                    } else {
+                        document.getElementById('on-time').style.display = 'block';
+                        document.getElementById('late').style.display = 'none';
+                    }
                 }
             }
         }

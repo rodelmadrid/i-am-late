@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <title>Welcome to I Am Late App</title>
         <link rel="stylesheet" href="styles.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
         <header>
@@ -22,12 +21,19 @@
                 </div>
 
                 <div class="main date">
-                    <span>Time:</span>
+                    <span>Current Time:</span>
                     <div class="my-input">
                          <span id="hour"></span>
                          <span id="minute"></span>
                          <span id="second"></span>
                     </div>
+                </div>
+
+                <div id="my-time" class="timepicker">
+                    <form>
+                        <label>Meeting Time:</label>
+                        <input id="meeting-time" type="time" class="my-input"><br>
+                    </form>
                 </div>
 
             </div>
