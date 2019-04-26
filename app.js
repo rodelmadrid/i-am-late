@@ -1,5 +1,3 @@
-window.onload = iAmLateApp();
-
 // clock that runs every 100ms = 0.1s and updates the DOM
 // with current time
 function clock() {
@@ -19,9 +17,9 @@ function getTimeString() {
 
 // this set time in the DOM
 function setTimeString(hours, minutes, seconds) {
-    document.getElementById('hour').innerHTML = hours;
-    document.getElementById('minute').innerHTML = ':' + minutes;
-    document.getElementById('second').innerHTML = ':' + seconds;
+    $('#hour').html(hours);
+    $('#minute').html(":" + minutes);
+    $('#second').html(":" + seconds);
 }
 
 // this adds a zero to numbers with one digit
@@ -35,20 +33,20 @@ function padTime(value) {
 
 // activate click on the i am late button
 function iAmLateButton() {
-    document.getElementById('i-am-late-btn').onclick = function() {
-
-        const meetingDate = document.getElementById('meeting-date').value;
+    $('#i-am-late-btn').click(function() {
+    
+        const meetingDate = $('#meeting-date').val();
         if (!meetingDate) {
             alert('Select a date for your meeting');
         } else {
             // create a Date from the date sent
             const realMeetingDate = new Date(meetingDate);
             // get the value of the time
-            const meetingTime = document.getElementById('meeting-time').value;
+            const meetingTime = $('#meeting-time').val();
             if (!meetingTime) {
                 alert('Select a time for your meeting');
             } else {
-                const meetingTimeSplittedArray = meetingTime.split(':');
+                const meetingTimeSplittedArray = $('#meeting-time').val().split(':');
 
                 const selectedHour = parseInt(meetingTimeSplittedArray[0]);
                 const selectedMinutes = parseInt(meetingTimeSplittedArray[1]);
@@ -56,7 +54,7 @@ function iAmLateButton() {
                 realMeetingDate.setHours(selectedHour, selectedMinutes, selectedSeconds);
 
                 const today = new Date();
-                const name = document.getElementById('name').value;
+                const name = $('#name').val();
                 if (!name) {
                     alert('Enter a Valid Name')
                 } else {
@@ -66,17 +64,25 @@ function iAmLateButton() {
                     }
 
                     if (realMeetingDate < today) {
-                        document.getElementById('late').style.display = 'block';
-                        document.getElementById('on-time').style.display = 'none';
+                        // showing late element in the DOM
+                        $('#late').show();
+                        // hiding on time elment in the DOM
+                        $('#on-time').hide();
                     } else {
-                        document.getElementById('on-time').style.display = 'block';
-                        document.getElementById('late').style.display = 'none';
+                        // showing on time element in the DOM
+                        $('#on-time').show();
+                        // hiding on time element in the DOM
+                        $('#late').hide();
                     }
                 }
             }
         }
-    }
+    });
 }
+
+
+
+$(document).ready(iAmLateApp);
 
 // This is the main function
 function iAmLateApp() {
